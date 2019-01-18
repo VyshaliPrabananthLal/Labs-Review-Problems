@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class Heap<T extends Comparable<T>>
 {
+	// Using only an array/list/vector (depending on your language of choice), 
+	// construct a max-heap data structure.
+	
 	ArrayList<T> items;
 	
 	public Heap()
@@ -13,7 +16,7 @@ public class Heap<T extends Comparable<T>>
 		items = new ArrayList<T>();
 	}
 	
-	// Insert is done at the end of the tree(Array List) so iterating from the parent of the last node
+
 	public void siftUp()
 	{
 		int k = items.size() - 1;
@@ -38,6 +41,9 @@ public class Heap<T extends Comparable<T>>
 	}
 	
 	
+	// You must use a max-heap to solve this problem, 
+	// and you must implement the heap yourself using an array/list/vector. 
+	// No other data structure will be permitted.
 	public void insert(T item)
 	{
 		items.add(item);
@@ -79,6 +85,8 @@ public class Heap<T extends Comparable<T>>
 	}
 	
 	
+	// Deleting is done at the root and last element in the tree is placed at the root
+	// and sift down takes place to satisfy max heap condition
 	public T delete() throws NoSuchElementException
 	{
 		if(items.size() == 0)
@@ -129,14 +137,20 @@ public class Heap<T extends Comparable<T>>
 			inputAsString = sc.next();
 		}*/
 		
+		
+		// Then, read in 10 numbers from the screen, 1 line at a time. 
 		for(int i = 0; i < 10; i++)
 		{
 			String inputAsString = sc.next();
+			// Store each one in your max-heap, one at a time. 
 			hp.insert(Integer.parseInt(inputAsString));
 		}
 		
+		
 		while(!hp.isEmpty())
 		{
+			// Then, output the numbers in descending order, one line at at time,
+			// by repeatedly retrieving and deleting the largest item from the heap.
 			int max = hp.delete();
 			System.out.println("Element Removed from max heap:" + max);
 		}
