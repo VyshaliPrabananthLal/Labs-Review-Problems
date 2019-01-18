@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class SortedSet
 {
+	// Write a sorted set data structure using binary search trees
 	class Node
 	{
 		int key;
@@ -28,6 +29,7 @@ public class SortedSet
 	}
 	
 	
+	// Inserting elements into a binary search tree
 	public void add(int key)
 	{
 		root = insertRecord(root,key);
@@ -55,6 +57,7 @@ public class SortedSet
 	}
 	
 	
+	// If the value is present, output "Yes" and no other text. If the value is missing, output "No" and no other text.
 	public void contains(int key)
 	{
 		Node temp = search(root,key);
@@ -92,6 +95,7 @@ public class SortedSet
 	
 	public static void main(String[] args)throws Exception
 	{
+		// Then, read in numbers from a file named infile.dat, inserting them into an instance of your sorted set.
 		BufferedReader br = new BufferedReader(new FileReader("infile.dat"));
 		SortedSet SortedSetObj = new SortedSet();
 		String numbers = "";
@@ -107,6 +111,7 @@ public class SortedSet
 			SortedSetObj.add(Integer.parseInt(x[i]));
 		}
 		
+		// You will then prompt the user for a value, and search the tree to determine if the value is found in the tree.
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the element to be searched");
 		int searchNum = sc.nextInt();
