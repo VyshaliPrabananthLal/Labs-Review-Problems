@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 public class CircularQueue
 {
+	// Using Linked List Data Structure
 	static class Node
 	{
 		int data;
 		Node link;
 	}
 	
+	// Initializing front and rear for exit and entry of elements
+	// Current to replace the current node with the users input
 	static class Queue
 	{
 		Node front, rear, current;
@@ -20,6 +23,8 @@ public class CircularQueue
 		Node temp = new Node();
 		temp.data = dataByUser;
 		q.current = q.front;
+		
+		// Constructing a Queue with a maximum size of 12
 		if(count > 12)
 		{
 			int number = count%12+12;
@@ -45,6 +50,7 @@ public class CircularQueue
 		}
 	}
 	
+
 	static int deQueue(Queue q)
 	{
 		if(q.front == null)
@@ -89,6 +95,11 @@ public class CircularQueue
 		Queue q = new Queue();
 		q.front = null; 
 		q.rear = null;
+		
+		
+		// Until user enter the entry "done", keep prompting the user for data to put into the queue
+		// Enqueue this data into the circular queue
+		// If/When the circular queue goes out of space begin over writing the beginning of the queue		
 		System.out.println("Enter the elements to enqueue in Queue. 'done' to stop stop and display the queue elements");
 		String element = sc.next();
 		while(!element.equals("done"))
@@ -107,13 +118,17 @@ public class CircularQueue
 			option = sc.next();
 		} while(option.equals("y"));*/
 		
-		displayQueue(q);
 		
+		
+		// When the user enters "done", dequeue and output the contents of the queue to the screen,
+		// with each entry on a line by itself
+		// Be sure to only output the true number of items in the queue, upto the maximum number		
+		displayQueue(q);		
 		if(count > 12)
 		{
 			count = 12;
 		}
-		
+				
 		System.out.println("\n");
 		for(int i = 0; i < count; i++)
 		{
