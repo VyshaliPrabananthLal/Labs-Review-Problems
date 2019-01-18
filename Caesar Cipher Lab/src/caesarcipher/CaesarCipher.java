@@ -11,6 +11,8 @@ public class CaesarCipher
 	public static void main(String args[])throws Exception
 	{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		// your program will prompt the user for the name of the file
 		System.out.println("Enter the file name with .txt");
 		String filename = br.readLine();
 		BufferedReader br1 = new BufferedReader(new FileReader(filename));
@@ -21,6 +23,7 @@ public class CaesarCipher
 			linesFromFile = linesFromFile + eachline;
 		}
 		
+		// It is encrypted with a Caesar Cipher that increases by 2 after every 3 characters (including symbol characters, which are not encoded), starting at key = 5. 
 		StringBuilder sb = new StringBuilder();
 		int key = 5;
 		int count = 1;
@@ -55,6 +58,7 @@ public class CaesarCipher
 			count++;
 		}
 		
+		// write the decrypted message to a new file called solution.txt.
 		String answer = new String(sb);
 		System.out.println(answer);
 		BufferedWriter bw = new BufferedWriter(new FileWriter("Solution.txt"));
